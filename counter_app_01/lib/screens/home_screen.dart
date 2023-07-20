@@ -6,6 +6,7 @@ class HomeSCreen extends StatelessWidget {
   // El BuildContext es todo el arbol de Widget
   @override
   Widget build(BuildContext context) {
+    const fontSize = TextStyle(fontSize: 25);
     // El Scaffold es un Widget que crea toda una pantalla en blanco para nosotros poder añadir estilos. Es como un lienzo para empezar a poner Widget
     return Scaffold(
       appBar: AppBar(
@@ -19,10 +20,10 @@ class HomeSCreen extends StatelessWidget {
           // Propiedades de las columnas.
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
+          children: [
             // Todo lo que esta aca, debe ser un widget
-            Text('Numero de Clicks'),
-            Text('10'),
+            Text('Numero de Clicks', style: fontSize),
+            Text('10', style: fontSize),
           ],
         ),
       ),
