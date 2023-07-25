@@ -38,15 +38,44 @@ class _CounterScreenState extends State<CounterScreen> {
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        // Icons es un Widget personalizado para mostrar iconos
-        child: const Icon(Icons.add),
-        onPressed: () {
-          counter++;
 
-          // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
-          setState(() {});
-        },
+      floatingActionButton: Row(
+        // El mainAxisAligment va de izquierda a derecha.
+        // El crossAxisAlignment va de arriva a abajo.
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            // Icons es un Widget personalizado para mostrar iconos
+            child: const Icon(Icons.add),
+            onPressed: () {
+              counter++;
+
+              // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
+              setState(() {});
+            },
+          ),
+          FloatingActionButton(
+            // Icons es un Widget personalizado para mostrar iconos
+            child: const Icon(Icons.home),
+            onPressed: () {
+              counter = 0;
+
+              // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
+              setState(() {});
+            },
+          ),
+          FloatingActionButton(
+            // Icons es un Widget personalizado para mostrar iconos
+            child: const Icon(Icons.minimize),
+            onPressed: () {
+              counter--;
+
+              // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
+              setState(() {});
+            },
+          ),
+        ],
       ),
     );
   }
