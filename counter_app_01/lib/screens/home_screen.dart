@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// El StatelessWidget no puede manejar estados para ello necesitamos un gestor de estados.
 class HomeSCreen extends StatelessWidget {
   const HomeSCreen({super.key});
 
@@ -7,6 +8,8 @@ class HomeSCreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const fontSize = TextStyle(fontSize: 25);
+
+    int counter = 10;
     // El Scaffold es un Widget que crea toda una pantalla en blanco para nosotros poder añadir estilos. Es como un lienzo para empezar a poner Widget
     return Scaffold(
       appBar: AppBar(
@@ -15,15 +18,15 @@ class HomeSCreen extends StatelessWidget {
       ),
       // backgroundColor: Colors.pink,
       // Cuando trabajamos con Scaffold siempre trabajamos en el body.
-      body: const Center(
+      body: Center(
         child: Column(
           // Propiedades de las columnas.
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Todo lo que esta aca, debe ser un widget
-            Text('Numero de Clicks', style: fontSize),
-            Text('10', style: fontSize),
+            const Text('Numero de Clicks', style: fontSize),
+            Text('$counter', style: fontSize),
           ],
         ),
       ),
