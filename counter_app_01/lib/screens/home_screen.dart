@@ -27,6 +27,13 @@ class HomeSCreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        // Icons es un Widget personalizado para mostrar iconos
+        child: const Icon(Icons.public_sharp),
+        onPressed: () {
+          print('Hola mundo');
+        },
+      ),
     );
   }
 }
