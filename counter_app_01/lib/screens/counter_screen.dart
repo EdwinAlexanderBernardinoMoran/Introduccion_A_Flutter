@@ -39,44 +39,44 @@ class _CounterScreenState extends State<CounterScreen> {
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
-      floatingActionButton: Row(
-        // El mainAxisAligment va de izquierda a derecha.
-        // El crossAxisAlignment va de arriva a abajo.
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        // crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          FloatingActionButton(
-            // Icons es un Widget personalizado para mostrar iconos
-            child: const Icon(Icons.add),
-            onPressed: () {
-              counter++;
+      floatingActionButton: const CustomFloatingActions(),
+    );
+  }
+}
 
-              // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
-              setState(() {});
-            },
-          ),
-          FloatingActionButton(
-            // Icons es un Widget personalizado para mostrar iconos
-            child: const Icon(Icons.home),
-            onPressed: () {
-              counter = 0;
+class CustomFloatingActions extends StatelessWidget {
+  const CustomFloatingActions({
+    super.key,
+  });
 
-              // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
-              setState(() {});
-            },
-          ),
-          FloatingActionButton(
-            // Icons es un Widget personalizado para mostrar iconos
-            child: const Icon(Icons.minimize),
-            onPressed: () {
-              counter--;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      // El mainAxisAligment va de izquierda a derecha.
+      // El crossAxisAlignment va de arriva a abajo.
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        FloatingActionButton(
+          // Icons es un Widget personalizado para mostrar iconos
+          child: const Icon(Icons.add),
+          // onPressed: () {
+          //   counter++;
 
-              // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
-              setState(() {});
-            },
-          ),
-        ],
-      ),
+          //   // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
+          //   setState(() {});
+          // },
+          onPressed: () => null,
+        ),
+        FloatingActionButton(
+          child: const Icon(Icons.home),
+          onPressed: () => null,
+        ),
+        FloatingActionButton(
+          child: const Icon(Icons.minimize),
+          onPressed: () => null,
+        ),
+      ],
     );
   }
 }
