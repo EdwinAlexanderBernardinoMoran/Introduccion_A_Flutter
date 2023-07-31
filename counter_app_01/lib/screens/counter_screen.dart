@@ -11,6 +11,21 @@ class CounterScreen extends StatefulWidget {
 class _CounterScreenState extends State<CounterScreen> {
   int counter = 10;
 
+  void increase() {
+    counter++;
+    setState(() {});
+  }
+
+  void decrease() {
+    counter--;
+    setState(() {});
+  }
+
+  void home() {
+    counter = 0;
+    setState(() {});
+  }
+
   // El BuildContext es todo el arbol de Widget
   @override
   Widget build(BuildContext context) {
@@ -39,14 +54,27 @@ class _CounterScreenState extends State<CounterScreen> {
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
-      floatingActionButton: const CustomFloatingActions(),
+      floatingActionButton: CustomFloatingActions(
+        increaseFn: increase,
+        decreaseFn: decrease,
+        homeFn: home,
+      ),
     );
   }
 }
 
+// NullSettings, advierte cuando algo es nulo.
+
 class CustomFloatingActions extends StatelessWidget {
+  final Function increaseFn;
+  final Function decreaseFn;
+  final Function homeFn;
+
   const CustomFloatingActions({
     super.key,
+    required this.increaseFn,
+    required this.decreaseFn,
+    required this.homeFn,
   });
 
   @override
@@ -66,15 +94,15 @@ class CustomFloatingActions extends StatelessWidget {
           //   // Metodo setState solo puede ser llamado en StatfullWidget, esto notifica que hubo un cambio en el estado, y redibuja el widget
           //   setState(() {});
           // },
-          onPressed: () => null,
+          onPressed: () => increaseFn(),
         ),
         FloatingActionButton(
           child: const Icon(Icons.home),
-          onPressed: () => null,
+          onPressed: () => homeFn(),
         ),
         FloatingActionButton(
           child: const Icon(Icons.minimize),
-          onPressed: () => null,
+          onPressed: () => decreaseFn(),
         ),
       ],
     );
